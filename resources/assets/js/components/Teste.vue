@@ -1,0 +1,36 @@
+<template>
+    <div class="container">
+        <div class="row">
+            <div v-bind:class="defineCor">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Example Component</div>
+
+                    <div class="panel-body">
+                       <slot></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        props:['tam'],
+        computed:{
+          defineCor: function(){
+            if(this.tamanho >= 12){
+              return "col-md-12";
+            }
+            if(this.tamanho <= 2){
+              return "col-md-2 col-md-offset-5";
+            }
+            if((this.tamanho % 2) == 0){
+              return "col-md-"+this.tamanho+" col-md-offset-"+((12 - this.tamanho)/2);
+            }else{
+              return "col-md-"+(parseInt(this.tamanho) + 1)+" col-md-offset-"+((12 - (parseInt(this.tamanho) + 1))/2);
+            }
+          }
+        }
+    } 
+</script>
