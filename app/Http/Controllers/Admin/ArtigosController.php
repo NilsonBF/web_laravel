@@ -16,9 +16,18 @@ class ArtigosController extends Controller
     {
         $listaMigalhas = json_encode([
             ["titulo" => "Home", "url" => route('home')],
-            ["titulo" => "Lista de compras", "url" => ""]
+            ["titulo" => "Lista de Artigos", "url" => ""]
         ]);
-        return view('admin.artigos.index', compact('listaMigalhas'));
+
+        $listaArtigos = json_encode([
+            ["id"=>1,"titulo"=>"PHP OO","descricao"=>"Curso de PHP OO"],
+            ["id"=>2,"titulo"=>"Vue JS","descricao"=>"Curso de Vue JS"],
+            ["id"=>3,"titulo"=>"Lorem ","descricao"=>"Ipsum is simply"],
+            ["id"=>4,"titulo"=>"Aliquip culpa cillum ullamco dolor.","descricao"=>"xercitation ullamco laboris"],
+            ["id"=>5,"titulo"=>"Finibus Bonorum","descricao"=>"eos et accusamus et iusto odio"]
+            ]);
+
+        return view('admin.artigos.index', compact('listaMigalhas','listaArtigos'));
     }
 
     /**
